@@ -17,8 +17,20 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        return cheng(n,32);
     }
+    private static int cheng(int a,int b){
+        int c = 0;
+        while (a != 0){
+            if((a & 1) == 1){
+                c = add(c, b);
+            }
+            b <<= 1;
+            a >>= 1;
+        }
+        return c;
+    }
+
 
     /**
      * `divideBy2ThenMinus1(int n)` returns the result of a given integer dividing by 2, then minus
@@ -32,6 +44,39 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+        n = devide(n, 2);
+        n = desic(n, 1);
+        return n;
+
+    }
+
+    private static int add(int ja, int jb) {
+        int tempJ;
+        while ((tempJ = ((ja & jb) << 1)) != 0) {
+            ja = ja ^ jb;
+            jb = tempJ;
+        }
+        return ja ^ jb;
+    }
+
+    private static int desic(int a, int b) {
+        return add(a, add(~b, 1));
+    }
+
+    private static int devide(int a, int b) {
+        if (b == 0) {
+            System.out.println("除数不能为0！");
+            return -1;
+        }
+        int x = a < 0 ? -a : a;
+        int y = b < 0 ? -b : b;
+        int end = 0;
+        for (int i = 31; i >= 0; i = desic(i, 1)) {
+            if (y <= (x >> i)) {
+                end = add(end, (1 << i));
+                x = desic(x, y << i);
+            }
+        }
+        return end;
     }
 }
