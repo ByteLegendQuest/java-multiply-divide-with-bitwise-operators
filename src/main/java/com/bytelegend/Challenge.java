@@ -12,7 +12,7 @@ public class Challenge {
 
     public static int add(int a, int b) {
         int sum = a;
-        int z=b;
+        int z = b;
         while (z != 0) {
             sum = a ^ z;    //将a，b两值不带进位相加
             z = (a & z) << 1; //b更新为进位的值
@@ -45,16 +45,17 @@ public class Challenge {
             b = add(~b, 1);
         int ans = 0;
         int temp;
-        if (a < b) {
+        int z = b;
+        if (a < z) {
             return 0;
-        } else if (a == b) {
+        } else if (a == z) {
             return 1;
         } else {
             for (int i = 31; i >= 0; i--) {
                 temp = a >>> i;
                 if (temp >= b) {
                     ans += (1 << i);
-                    a -= (b << i);
+                    a -= (z << i);
                 }
             }
         }
