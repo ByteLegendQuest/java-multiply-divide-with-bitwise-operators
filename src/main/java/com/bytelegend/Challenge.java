@@ -10,6 +10,17 @@ public class Challenge {
         System.out.println(divideBy2ThenMinus1(7));
     }
 
+    public static int add(int a, int b) {
+        int sum = a;
+        while (b != 0) {
+            sum = a ^ b;    //将a，b两值不带进位相加
+            b = (a & b) << 1; //b更新为进位的值
+            a = sum;   //a更新为不带进位的相加值
+        }
+        return sum;
+    }
+
+
     /**
      * `multiplyBy31Description(int n)` returns the result of a given integer multiplying by 31,
      * e.g. `n=1`, return `31`; `n=2`, return `62`. No need to consider overflow issue. Note that
@@ -17,7 +28,40 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            sum = add(sum, 31);
+        }
+
+        return sum;
+    }
+
+    public static int divide(int a, int b) {
+        boolean isAllNeg = isNegtive(a) || isNegtive(b);
+        if (isNegtive(a))
+            a = add(~a, 1);
+        if (isNegtive(b))
+            b = add(~b, 1);
+        int ans = 0;
+        int temp;
+        if (a < b) {
+            return 0;
+        } else if (a == b) {
+            return 1;
+        } else {
+            for (int i = 31; i >= 0; i--) {
+                temp = a >>> i;
+                if (temp >= b) {
+                    ans += (1 << i);
+                    a -= (b << i);
+                }
+            }
+        }
+        return isAllNeg ? add(~ans, 1) : ans;
+    }
+
+    public static boolean isNegtive(int num) {
+        return num < 0;
     }
 
     /**
@@ -32,6 +76,7 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+
+        return divide(n, 2) - 1;
     }
 }
