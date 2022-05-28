@@ -38,24 +38,26 @@ public class Challenge {
     }
 
     public static int divide(int a, int b) {
-        boolean isAllNeg = isNegtive(a) || isNegtive(b);
-        if (isNegtive(a))
-            a = add(~a, 1);
-        if (isNegtive(b))
-            b = add(~b, 1);
+        int z = b;
+        int q = a;
+        boolean isAllNeg = isNegtive(q) || isNegtive(z);
+        if (isNegtive(q))
+            q = add(~q, 1);
+        if (isNegtive(z))
+            z = add(~z, 1);
         int ans = 0;
         int temp;
-        int z = b;
-        if (a < z) {
+
+        if (q < z) {
             return 0;
-        } else if (a == z) {
+        } else if (q == z) {
             return 1;
         } else {
             for (int i = 31; i >= 0; i--) {
-                temp = a >>> i;
+                temp = q >>> i;
                 if (temp >= b) {
                     ans += (1 << i);
-                    a -= (z << i);
+                    q -= (z << i);
                 }
             }
         }
