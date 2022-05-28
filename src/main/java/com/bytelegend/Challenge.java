@@ -12,9 +12,10 @@ public class Challenge {
 
     public static int add(int a, int b) {
         int sum = a;
-        while (b != 0) {
-            sum = a ^ b;    //将a，b两值不带进位相加
-            b = (a & b) << 1; //b更新为进位的值
+        int z=b;
+        while (z != 0) {
+            sum = a ^ z;    //将a，b两值不带进位相加
+            z = (a & z) << 1; //b更新为进位的值
             a = sum;   //a更新为不带进位的相加值
         }
         return sum;
