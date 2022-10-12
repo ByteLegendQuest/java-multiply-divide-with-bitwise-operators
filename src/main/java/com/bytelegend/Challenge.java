@@ -30,7 +30,7 @@ public class Challenge {
     public static int multiplyBy31(int n) {
         int res = n;
         for (int i = 1; i <= 5; ++i) {
-            add (res, n << i);
+            res += add(res, n << i);
         }
         return res;
     }
