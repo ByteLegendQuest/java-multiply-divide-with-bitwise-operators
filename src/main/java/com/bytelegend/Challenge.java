@@ -10,6 +10,17 @@ public class Challenge {
         System.out.println(divideBy2ThenMinus1(7));
     }
 
+    public static int add(int a, int b){
+        int res = a ^ b, remain = a & b;
+        while (remain != 0) {
+            int nowRes = res;
+            int nowRemain = remain << 1;
+            remain = nowRes & nowRemain;
+            res = nowRes ^ nowRemain;
+        }
+        return res;
+    }
+
     /**
      * `multiplyBy31Description(int n)` returns the result of a given integer multiplying by 31,
      * e.g. `n=1`, return `31`; `n=2`, return `62`. No need to consider overflow issue. Note that
@@ -17,7 +28,11 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        int res = n;
+        for (int i = 1; i <= 5; ++i) {
+            add (res, n << i);
+        }
+        return res;
     }
 
     /**
@@ -32,6 +47,6 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+        return (n >> 1) - 1;
     }
 }
