@@ -1,4 +1,5 @@
 package com.bytelegend;
+import java.math.BigInteger;
 
 public class Challenge {
     public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        return new BigInteger(n + "").multiply(new BigInteger("31")).intValue();
     }
 
     /**
@@ -32,6 +33,6 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+       return new BigInteger(n + "").divide(new BigInteger("2")).add(new BigInteger("-1")).intValue();
     }
 }
