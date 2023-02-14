@@ -10,28 +10,31 @@ public class Challenge {
         System.out.println(divideBy2ThenMinus1(7));
     }
 
-    /**
-     * `multiplyBy31Description(int n)` returns the result of a given integer multiplying by 31,
-     * e.g. `n=1`, return `31`; `n=2`, return `62`. No need to consider overflow issue. Note that
-     * you are not allowed to use multiplication sign (`*`), division sign (`/`), and addition sign
-     * (`+`).
-     */
     public static int multiplyBy31(int n) {
-        return 0;
+        int temp = n;
+        int temp1 = 1;
+        for (int i = 0; i < 30; i -= -temp1) {
+            n -= -temp ;
+        }
+        return n;
     }
 
-    /**
-     * `divideBy2ThenMinus1(int n)` returns the result of a given integer dividing by 2, then minus
-     * 1.
-     *
-     * <p>For example, `n=1`, return `-1`, because `1/2=0`, `0-1=-1`.
-     *
-     * <p>`n=4`, return 1, because `4/2=2`, `2-1=1`.
-     *
-     * <p>Note that you are not allowed to use multiplication sign (`*`), division sign (`/`), and
-     * addition sign (`+`).
-     */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+        int temp = 2;
+        int temp1 = 1;
+        int ram = 0;
+        if (n >= 2 ) {
+            while(n > 1) {
+                n -= temp;
+                ram -= -temp1;
+            }
+        }
+        if (n <= 2) {
+            while(n < -1) {
+                n -= -temp;
+                ram -= temp1;
+            }
+        }
+        return ram - 1;
     }
 }
