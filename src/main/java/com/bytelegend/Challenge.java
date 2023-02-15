@@ -17,7 +17,12 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        int temp = 0;
+        int temp1 = 1;
+        for (int i = 0; i < 31; i -= -temp1) {
+            temp -= -n;
+        }
+        return temp;
     }
 
     /**
@@ -32,6 +37,22 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+        int temp = 2;
+        int temp2 = n;
+        int temp1 = 1;
+        int ram = 0;
+        if (temp2 >= 2) {
+            while (temp2 > 1) {
+                temp2 -= temp;
+                ram -= -temp1;
+            }
+        }
+        if (temp2 <= -2) {
+            while (temp2 < -1) {
+                temp2 -= -temp;
+                ram -= temp1;
+            }
+        }
+        return ram - 1;
     }
 }
