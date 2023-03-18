@@ -16,8 +16,10 @@ public class Challenge {
      * you are not allowed to use multiplication sign (`*`), division sign (`/`), and addition sign
      * (`+`).
      */
-    public static int multiplyBy31(int n) {
-        return 0;
+    public static int multiplyBy31(int x) {
+        // 左移5位相当于乘以2的5次方，即32倍
+        // 然后减去原来的数，相当于乘以31
+        return (x << 5) - x;
     }
 
     /**
@@ -32,6 +34,6 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+        return n >> 1;
     }
 }
