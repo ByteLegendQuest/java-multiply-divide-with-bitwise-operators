@@ -34,11 +34,21 @@ public class Challenge {
     public static int divideBy2ThenMinus1(int n) {
         if (n < 0) 
         {
-            return (((n - 1) >> 1) - 1);
+            return ((addOne(n) >> 1) - 1);
         } 
         else 
         {
             return ((n >> 1) - 1);
         }
+    }
+        
+    public static int addOne(int num) {
+        int m = 1;
+        while ((num & m) != 0) {
+            num ^= m;
+            m <<= 1;
+        }
+        num ^= m;
+        return num;
     }
 }
