@@ -32,13 +32,6 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        if (((n >> 1) - 1) == -51)
-        {
-            return -50;
-        } else if (((n >> 1) - 1) == -50)
-        {
-            return -51;
-        }
         return ((n >> 1) - 1);
     }
 }
