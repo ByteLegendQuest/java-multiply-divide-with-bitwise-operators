@@ -17,7 +17,7 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        return (n << 5) - n;
     }
 
     /**
