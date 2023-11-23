@@ -18,6 +18,7 @@ public class Challenge {
      */
     public static int multiplyBy31(int n) {
         return 0;
+        return (n << 5) - n;
     }
 
     /**
@@ -33,5 +34,10 @@ public class Challenge {
      */
     public static int divideBy2ThenMinus1(int n) {
         return 0;
+        if (n < 0) {
+            int m = -n;
+            return -(m >> 1) - 1;
+        }
+        return (n >> 1) - 1;
     }
 }
