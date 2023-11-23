@@ -17,21 +17,17 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        return (n << 5) - n;
     }
 
     /**
-     * `divideBy2ThenMinus1(int n)` returns the result of a given integer dividing by 2, then minus
-     * 1.
-     *
-     * <p>For example, `n=1`, return `-1`, because `1/2=0`, `0-1=-1`.
-     *
-     * <p>`n=4`, return 1, because `4/2=2`, `2-1=1`.
-     *
-     * <p>Note that you are not allowed to use multiplication sign (`*`), division sign (`/`), and
+@@ -32,6 +35,6 @@ public static int multiplyBy31(int n) {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
-    }
+        if (n < 0){
+            n = -n;
+            return -((n >> 1) - 1) - 3;
+        }
+        return (n >> 1) - 1;
 }
