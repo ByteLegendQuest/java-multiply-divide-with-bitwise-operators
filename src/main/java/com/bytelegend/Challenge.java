@@ -2,12 +2,15 @@ package com.bytelegend;
 
 public class Challenge {
     public static void main(String[] args) {
-        System.out.println(multiplyBy31(0));
-        System.out.println(multiplyBy31(1));
-        System.out.println(multiplyBy31(5));
-        System.out.println(divideBy2ThenMinus1(1));
-        System.out.println(divideBy2ThenMinus1(4));
-        System.out.println(divideBy2ThenMinus1(7));
+//        System.out.println(multiplyBy31(0));
+//        System.out.println(multiplyBy31(2));
+//        System.out.println(multiplyBy31(5));
+        System.out.println(-97 / 2 - 1);
+        System.out.println(-99 / 2 - 1);
+        System.out.println(-98 / 2 - 1);
+        System.out.println(divideBy2ThenMinus1(-97));
+        System.out.println(divideBy2ThenMinus1(-99));
+        System.out.println(divideBy2ThenMinus1(-98));
     }
 
     /**
@@ -17,7 +20,7 @@ public class Challenge {
      * (`+`).
      */
     public static int multiplyBy31(int n) {
-        return 0;
+        return (n << 5) - n;
     }
 
     /**
@@ -32,6 +35,6 @@ public class Challenge {
      * addition sign (`+`).
      */
     public static int divideBy2ThenMinus1(int n) {
-        return 0;
+        return ((n+1) >> 1 )- 1;
     }
 }
